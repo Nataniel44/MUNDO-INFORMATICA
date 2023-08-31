@@ -1,10 +1,10 @@
-# Simple workflow for deploying static content to GitHub Pages
 name: Deploy static content to Pages
 
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ['main']
+    branches:
+      - main
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -29,23 +29,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2  # Cambiado a la versión 2 para evitar problemas con PNPM
       - name: Set up Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v2  # Cambiado a la versión 2 para evitar problemas con PNPM
         with:
           node-version: 18
-          cache: 'npm'
+          cache: 'pnpm'  # Usar 'pnpm' en lugar de 'npm' como caché
       - name: Install dependencies
-        run: npm install
+        run: pnpm install  # Usar 'pnpm' en lugar de 'npm'
       - name: Build
-        run: npm run build
+        run: pnpm run build  # Usar 'pnpm' en lugar de 'npm'
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-artifact@v2  # Actualizado a la versión 2 para evitar problemas con PNPM
         with:
           # Upload dist repository
           path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
+        with:
+          # Especificar la rama de destino, por ejemplo, 'gh-pages'
+          # Si tu rama de destino es 'gh-pages', cambia esto
+          # según la rama que estés utilizando para GitHub Pages
+          target_branch: gh-pages
