@@ -18,8 +18,8 @@ jobs:
         with:
           node-version: 16 # Puedes cambiar esto a tu versión de Node.js preferida
 
-      - name: Install Dependencies
-        run: pnpm install
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Build
         run: pnpm build
