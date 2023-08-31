@@ -22,8 +22,9 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.4
-        with:
-          branch: gh-pages # Puedes cambiar esta rama si lo deseas
-          folder: build
+     - name: Deploy to GitHub Pages
+  uses: JamesIves/github-pages-deploy-action@4.1.4
+  with:
+    branch: gh-pages # Puedes cambiar esta rama si lo deseas
+    folder: build # Aquí debe estar la carpeta correcta, sin corchetes de cierre
+
