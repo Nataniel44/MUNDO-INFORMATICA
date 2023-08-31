@@ -37,9 +37,11 @@ jobs:
 
       - name: Create .nojekyll file
         run: echo 'gh-pages' > .dist/.nojekyll
-
+        
       - name: Deploy to GitHub Pages
         run: |
           git add .
           git commit -m "Deploy via GitHub Actions"
           git push --force "https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git" main:gh-pages
+  
+
