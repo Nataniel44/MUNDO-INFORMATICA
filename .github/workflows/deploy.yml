@@ -25,6 +25,7 @@ jobs:
         run: |
           cd MUNDO-INFORMATICA  # Cambia al directorio de tu proyecto
           pnpm build
+        working-directory: ./MUNDO-INFORMATICA # Directorio de trabajo para este paso
 
       - name: Deploy to GitHub Pages
         run: |
