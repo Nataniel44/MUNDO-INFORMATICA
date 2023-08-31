@@ -22,8 +22,10 @@ jobs:
         run: npm install -g pnpm
 
       - name: Build
-        run: pnpm build
-        working-directory: ./MUNDO-INFORMATICA # Ruta relativa a la carpeta de tu proyecto
+        run: |
+          cd MUNDO-INFORMATICA  # Cambia al directorio de tu proyecto
+          pnpm build
+        working-directory: ./MUNDO-INFORMATICA # Directorio de trabajo para este paso
 
       - name: Deploy to GitHub Pages
         run: |
