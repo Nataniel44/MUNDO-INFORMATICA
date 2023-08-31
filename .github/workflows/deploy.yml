@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main # Cambia esto al nombre de tu rama principal
+      - main
 
 jobs:
   build:
@@ -16,22 +16,22 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 16 # Puedes cambiar esto a tu versión de Node.js preferida
+          node-version: 16
 
       - name: Install pnpm
         run: npm install -g pnpm
 
       - name: Build
         run: |
-          cd MUNDO-INFORMATICA  # Cambia al directorio de tu proyecto
+          pnpm install
           pnpm build
-        working-directory: ./MUNDO-INFORMATICA # Directorio de trabajo para este paso
+        working-directory: ./ # Directorio de trabajo en la raíz del repositorio
 
       - name: Deploy to GitHub Pages
         run: |
           git config --global user.name ${{ secrets.GITHUB_ACTOR }}
           git config --global user.email ${{ secrets.GITHUB_ACTOR }}@users.noreply.github.com
-          echo 'your-gh-pages-branch-name' > .dist/.nojekyll  # Si necesitas deshabilitar Jekyll
+          echo 'gh-pages' > .dist/.nojekyll
           git add .
           git commit -m "Deploy via GitHub Actions"
           git push --force "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" main:gh-pages
