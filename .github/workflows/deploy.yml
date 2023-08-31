@@ -32,9 +32,14 @@ jobs:
           pnpm build
         working-directory: ./ # Directorio de trabajo en la raíz del repositorio
 
+      - name: Create .dist directory
+        run: mkdir -p .dist
+
+      - name: Create .nojekyll file
+        run: echo 'gh-pages' > .dist/.nojekyll
+
       - name: Deploy to GitHub Pages
         run: |
-          echo 'gh-pages' > .dist/.nojekyll
           git add .
           git commit -m "Deploy via GitHub Actions"
           git push --force "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" main:gh-pages
