@@ -23,8 +23,8 @@ jobs:
 
       - name: Set Git User
         run: |
-          git config --global user.name "TuNombreDeUsuario"
-          git config --global user.email "tu@email.com"
+          git config --global user.name "Nataniel44"
+          git config --global user.email "josenatanielsoto@gmail.com"
 
       - name: Build
         run: |
