@@ -33,7 +33,7 @@ export default function Main() {
   ];
   return (
     <>
-      <div className="container mt-5 text-logo">
+      <div className="container mt-5  text-logo">
           <h3 className="text-light text-center display-5">Nuestros Cursos</h3>
         <div className="row justify-content-center ">
           {cursosData.map((curso) => (
