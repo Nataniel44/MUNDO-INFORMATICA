@@ -1,45 +1,55 @@
-name: Deploy to GitHub Pages
+name: Deploy static content to Pages
 
 on:
+  # Runs on pushes targeting the default branch
   push:
-    branches:
-      - main
+    branches: ['main']
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets the GITHUB_TOKEN permissions to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow one concurrent deployment
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
 
 jobs:
+  # Single deploy job since we're just deploying
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2  # Puedes seguir utilizando actions/checkout@v2 para clonar el repositorio
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - name: Set up Node and pnpm
+        uses: actions/setup-node@v2  # Configura Node.js
         with:
-          node-version: 16
+          node-version: 18
+          cache: 'pnpm'  # Usa pnpm para el almacenamiento en caché de dependencias
 
-      - name: Install pnpm
-        run: npm install -g pnpm
-
-      - name: Set Git User
-        run: |
-          git config --global user.name "Nataniel44"
-          git config --global user.email "josenatanielsoto@gmail.com"
+      - name: Install dependencies
+        run: pnpm install  # Instala las dependencias con pnpm
 
       - name: Build
-        run: |
-          pnpm install
-          pnpm build
-        working-directory: ./ # Directorio de trabajo en la raíz del repositorio
+        run: pnpm run build  # Ejecuta el comando de construcción con pnpm
 
-      - name: Create .dist directory
-        run: mkdir -p .dist
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
 
-      - name: Create .nojekyll file
-        run: echo 'gh-pages' > .dist/.nojekyll
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: './dist'  # Asegúrate de especificar la ruta correcta para la carpeta de construcción
 
-        # Upload dist repository
-        path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
