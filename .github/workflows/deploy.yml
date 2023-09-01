@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -42,4 +42,4 @@ jobs:
         run: |
           git add .
           git commit -m "Deploy via GitHub Actions"
-          git push --force "https://@github.com/Nataniel44/MUNDO-INFORMATICA.git" main:gh-pages
+          git push --force "https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository }}.git" main
