@@ -5,8 +5,9 @@
   /* Personaliza más el estilo aquí según tus preferencias */
 }
 .fondo {
-  background-image: url("public/img/fondo1.jpg");
+  background-image: url(" ../img/fondo1.jpg ");
   background-size: cover;
+
 }
 .text-logo {
   font-family: "Phudu", cursive;
