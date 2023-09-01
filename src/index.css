@@ -5,15 +5,8 @@
   /* Personaliza más el estilo aquí según tus preferencias */
 }
 .fondo {
-  background-image: url("src/img/informatica.jpg");
+  background-image: url("./img/fondo1.jpg");
   background-size: cover;
-  /* Aplicar opacidad al fondo */
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* El último valor (0.5) controla la opacidad, donde 0 es completamente transparente y 1 es completamente opaco */
 }
 .text-logo {
   font-family: "Phudu", cursive;
@@ -22,7 +15,24 @@ body {
   background: #222;
 }
 .shad {
-  box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1); /* Sombra suave */
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.422); /* Sombra suave */
+}
+.logo{
+  font-family: 'Passion One', cursive;
+}
+
+.first-color { 
+	background: #d5def5;  
+}
+.text-color-second{
+ color: #95b0f5;
+}
+.text-color{
+  color: #6643b5;
+}
+.second-color{
+  background-color: #6643b5;
+
 }
 .vh-50 {
   height: 50vh;

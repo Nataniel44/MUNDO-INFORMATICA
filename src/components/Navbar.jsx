@@ -5,11 +5,12 @@ const Navbar = () => {
         <div className="container-fluid">
           <a className="navbar-brand text" href="#">
             <img
-              src="src/img/logo2.png"
+              src="./img/logo2.png"
               className="rounded-circle"
               width="50"
               alt=""
             />
+            
           </a>
           <button
             className="navbar-toggler"
@@ -28,10 +29,10 @@ const Navbar = () => {
                 Inicio
               </a>
               <a className="nav-link active" href="#">
-                Características
+                Cursos
               </a>
               <a className="nav-link active" href="#">
-                Precios
+                ¡quiero inscribirme!
               </a>
             </div>
           </div>

@@ -23,8 +23,8 @@ const RegistroForm = () => {
   };
 
   return (
-    <div className="text-center text-logo d-flex flex-column  container">
-      <h2 className="">Formulario de Pre-Inscripción</h2>
+    <div className="text-center text-logo d-flex flex-column container rounded second-color p-3">
+      <h2 className="">Formulario de <span className="text-color-second"> Pre-Inscripción</span></h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <input

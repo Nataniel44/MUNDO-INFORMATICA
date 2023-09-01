@@ -5,9 +5,9 @@ const Footer = () => {
         <div className="row">
           <div className="col-md-6">
             <h5>Contacto</h5>
-            <p>Dirección: Tu Dirección</p>
-            <p>Teléfono: Tu Número de Teléfono</p>
-            <p>Email: tu@email.com</p>
+            <p>Dirección: San Vicente, Mnes. <br />Av. Constitución y Roldán 1090, Local 7</p>
+            <p>Teléfono: 3755 636325</p>
+            <p>Email: insitutomundoinformatica@gmail.com</p>
           </div>
           <div className="col-md-6">
             <h5>Redes Sociales</h5>
